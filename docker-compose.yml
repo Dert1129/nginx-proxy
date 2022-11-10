@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+
+  nginx:
+      container_name: nginx
+      image: nginx
+      ports:
+        - "80:80"
+        - "443:443"
+      environment:
+        - "TZ:America/Detroit"
+      volumes:
+        - ./:/app
+        - ~/certs:/certs
+        - ./container_files/:/etc/nginx/conf.d/
+        - ./welcome_page/:/usr/share/nginx/html/
