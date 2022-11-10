@@ -14,3 +14,13 @@ services:
         - ~/certs:/certs
         - ./container_files/:/etc/nginx/conf.d/
         - ./welcome_page/:/usr/share/nginx/html/
+  
+  cellxgene_VIP:
+      container_name: cellxgene_VIP
+      image: cward999/cellxgene-vip-gateway
+      ports:
+        - "3838:3838"
+      environment:
+        - "TZ:America/Detroit"
+      volumes:
+        - ~/cellxgene_VIP/data/:/data
